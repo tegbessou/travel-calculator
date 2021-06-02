@@ -1,24 +1,8 @@
-# Skeleton
-![CI](https://github.com/tegbessou/skeleton/workflows/CI/badge.svg)
-## Description
-A skeleton of application, which can be used if you have to start a new project with Symfony, Ningx, PHP and Mysql.
-
-## Purpose
-This skeleton will be used on new and actual projects in our organization
-In our skeleton we want a stack which is capable to run a Symfony application
-
-## What is in Skeleton ?
-### Docker
-- Nginx: 1.19
-- PHP: 7.4
-- Mysql: 8.0
-- QualityAssurance: 7.4
-- Redis: 6.0
-- Mailcatcher
-- PhpMyAdmin
+# Travel calculator
+![CI](https://github.com/tegbessou/travel-calculator/workflows/CI/badge.svg)
 
 ### Symfony
-Version 5.2
+Version 5.3
 
 ### Functionnal Test
 We use Behat. To run behat use:

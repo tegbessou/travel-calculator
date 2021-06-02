@@ -7,7 +7,6 @@ security:
             security: false
         main:
             anonymous: true
-            lazy: true
             provider: users_in_memory
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
