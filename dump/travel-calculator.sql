@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
+-- MariaDB dump 10.19  Distrib 10.6.1-MariaDB, for debian-linux-gnu (aarch64)
 --
 -- Host: localhost    Database: travel-calculator
 -- ------------------------------------------------------
--- Server version	8.0.25
+-- Server version	10.6.1-MariaDB-1:10.6.1+maria~focal
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -19,7 +19,7 @@
 -- Current Database: `travel-calculator`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `travel-calculator` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `travel-calculator` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `travel-calculator`;
 
@@ -29,9 +29,9 @@ USE `travel-calculator`;
 
 DROP TABLE IF EXISTS `airport`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `airport` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitutde` double NOT NULL,
   `longitude` double NOT NULL,
@@ -57,13 +57,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `doctrine_migration_versions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `version` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
-  `execution_time` int DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `doctrine_migration_versions` (
 
 LOCK TABLES `doctrine_migration_versions` WRITE;
 /*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
-INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20201020095646','2021-06-06 20:27:41',49),('DoctrineMigrations\\Version20210602141406','2021-06-06 20:27:41',13),('DoctrineMigrations\\Version20210606202706','2021-06-06 20:27:41',38);
+INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20201020095646','2021-06-09 13:11:28',161),('DoctrineMigrations\\Version20210602141406','2021-06-09 13:11:28',5),('DoctrineMigrations\\Version20210606202706','2021-06-09 13:11:28',3);
 /*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,9 +82,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-06 20:27:42
+-- Dump completed on 2021-06-09 13:11:31

@@ -25,13 +25,15 @@ services:
     restart: on-failure
     working_dir: /home/app
     volumes:
-      - .:/home/app
+      - .:/home/app:cached
+      - appdata:/home/app/var/cache
+      - appdata:/home/app/var/log
+      - ./vendor:/home/app/vendor:delegated
     networks:
       - web
 
   db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    image: mariadb:10.6
     restart: on-failure
     volumes:
       - .:/home/app
@@ -77,3 +79,6 @@ services:
 
 networks:
     web:
+
+volumes:
+  appdata: ~

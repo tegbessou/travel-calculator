@@ -6,7 +6,8 @@ RUN apk update \
     git \
     zip \
     unzip \
-    nodejs
+    nodejs \
+    python2
 
 # PHP extensions
 RUN docker-php-ext-install opcache pdo_mysql mysqli
