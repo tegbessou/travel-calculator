@@ -9,6 +9,10 @@
     </head>
     <body>
         <h1>{{ 'app.title'|trans }}</h1>
+        <h2>{% block page_title %}{% endblock %}</h2>
+        {% if is_granted('ROLE_ADMIN') and app.request.query.has('with_log') != true %}
+            <a href="{{ path(app.request.attributes.get('_route'), { 'with_log': '' }) }}">Avec log</a>
+        {% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

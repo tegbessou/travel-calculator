@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title 'login.title'|trans %}
+
+{% block body %}
+    {% if error %}
+        <p>{{ error.message }}</p>
+    {% endif %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.remember_me) }}
+        <input type="submit" value="{{ "login.button.value"|trans }}">
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_home', { 'with_log': true }) }}">Chercher voyage</a>
+{% endblock %}

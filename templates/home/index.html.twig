@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ 'app.home.message'|trans }}
+    {% if is_granted('with_log', app.request) %}
+        Log activé
+    {% endif %}
 {% endblock %}

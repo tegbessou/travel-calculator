@@ -1,13 +1,33 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+        md5:
+            algorithm: md5
+
     providers:
-        users_in_memory: { memory: null }
+        users:
+            entity:
+                class: 'App\Entity\User'
+                property: 'username'
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
         main:
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /admin
+                remember_me_parameter: 'login[remember_me]'
+            access_denied_handler: App\Security\Authorization\AccessDeniedHandler
             anonymous: true
-            provider: users_in_memory
+            provider: users
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+            logout:
+                path: app_admin_logout
+                target: app_admin_login
+            switch_user: { parameter: switch }
+
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }

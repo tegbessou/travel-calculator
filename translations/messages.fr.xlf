@@ -6,6 +6,30 @@
                 <source>app.title</source>
                 <target>Calculateur de voyage</target>
             </trans-unit>
+            <trans-unit id="login.title">
+                <source>login.title</source>
+                <target>Page de connexion des admins</target>
+            </trans-unit>
+            <trans-unit id="username.label">
+                <source>username.label</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="password.label">
+                <source>password.label</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="remember_me.label">
+                <source>remember_me.label</source>
+                <target>Se souvenir de moi</target>
+            </trans-unit>
+            <trans-unit id="login.button.value">
+                <source>login.button.value</source>
+                <target>Me connecter</target>
+            </trans-unit>
+            <trans-unit id="logout.label">
+                <source>logout.label</source>
+                <target>Logout</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  */
-class User implements UserInterface
+class User implements UserInterface, EncoderAwareInterface
 {
     /**
      * @ORM\Id
@@ -18,9 +19,9 @@ class User implements UserInterface
     private int $id;
 
     /**
-     * @ORM\Column(name="email", type="string")
+     * @ORM\Column(name="username", type="string")
      */
-    private string $email;
+    private string $username;
 
     /**
      * @ORM\Column(name="roles", type="array")
@@ -37,14 +38,14 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getEmail(): string
+    public function getUsername(): string
     {
-        return $this->email;
+        return $this->username;
     }
 
-    public function setEmail(string $email): self
+    public function setUsername(string $username): self
     {
-        $this->email = $email;
+        $this->username = $username;
 
         return $this;
     }
@@ -73,8 +74,20 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getUserIdentifier(): string
+    public function eraseCredentials(): void
     {
-        // TODO: Implement getUserIdentifier() method.
+    }
+
+    public function getSalt(): void
+    {
+    }
+
+    public function getEncoderName(): ?string
+    {
+        if (in_array('ROLE_MD5', $this->roles)) {
+            return 'md5';
+        }
+
+        return null;
     }
 }

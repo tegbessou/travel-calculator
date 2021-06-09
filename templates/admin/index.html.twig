@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.request.session.bag('flashes').get('info') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    <p>Tu es: {{ app.user.username }}</p>
+    {% if impersonate_user %}
+        <p>En réalité tu es: {{ impersonate_user.username }}</p>
+    {% endif %}
+    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+        <a href="{{ path('app_admin_index', { 'switch': '_exit' }) }}">Quitter l'usurpation</a><br>
+    {% endif %}
+    {% if is_granted('ROLE_ALLOWED_TO_SWITCH') %}
+        <a href="{{ path('app_admin_index', { 'switch': 'switch_admin' }) }}">Usurper: switch_admin</a><br><br>
+    {% endif %}
+    <a href="{{ path('app_admin_logout') }}">{{ 'logout.label'|trans }}</a>
+{% endblock %}

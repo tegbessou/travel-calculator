@@ -16,3 +16,11 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Event\EventListener\AuthenticationListener:
+        tags:
+            - { name: kernel.event_listener, event: security.authentication.success }
+
+    App\Event\EventListener\SwitchUserListener:
+        tags:
+            - { name: kernel.event_listener, event: security.switch_user }
